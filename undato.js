@@ -3,26 +3,32 @@ import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/12
 
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCrB4xgCBRmpujDcvOOihSVZ6MIFOPE56M",
-    authDomain: "proyectoclase1-2025.firebaseapp.com",
-    databaseURL: "https://proyectoclase1-2025-default-rtdb.firebaseio.com",
-    projectId: "proyectoclase1-2025",
-    storageBucket: "proyectoclase1-2025.firebasestorage.app",
-    messagingSenderId: "822869341917",
-    appId: "1:822869341917:web:8d4d76a6493df78963cd34"
-};
+    apiKey: "AIzaSyDllEU7AG4Alvu8pPADt-TSlFMR5clNBj8",
+    authDomain: "proyectogrupohuerta-9e970.firebaseapp.com",
+    projectId: "proyectogrupohuerta-9e970",
+    storageBucket: "proyectogrupohuerta-9e970.firebasestorage.app",
+    messagingSenderId: "104414144386",
+    appId: "1:104414144386:web:da627197af20c48eb7119b"
 
+};
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
-let parrafo = document.querySelector("p");
-
-const refDatos = ref(db, "huerta");
-
 onValue(refDatos, (snapshot) => {
-    console.log(snapshot.val())
-    let huerta = snapshot.val()
-    parrafo.textContent = `La huerta tiene una temperatura en el suelo de ${huerta.tempSuelo}° y de humedad de ${huerta.humSuelo}`
-    
-   
-})
+    let datos = snapshot.val();
+    console.log(datos);
+
+    parrafo.textContent = 
+      `Temperatura: ${datos.Temperatura} °C | Humedad Aire: ${datos.humedadAire}% | Humedad Suelo: ${datos.humedadSuelo}%`;
+
+    let img = document.getElementById("imgTemp");
+    let temp = datos.Temperatura;
+
+    if (temp < 15) {
+        img.src = "frio.png";
+    } else if (temp >= 15 && temp <= 30) {
+        img.src = "normal.png";
+    } else {
+        img.src = "calor.png";
+    }
+});
