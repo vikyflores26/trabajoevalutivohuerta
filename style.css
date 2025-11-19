@@ -57,4 +57,41 @@ h2 {
     color: #333;
 }
 
+.huerta-container {
+    width: 100%;
+    display: flex;
+    justify-content: center; 
+    margin-top: 30px;
+}
 
+.img-huerta {
+    width: 80%;           /* ajusta el tamaño */
+    max-width: 800px;     /* para que no se haga gigante */
+    border-radius: 15px;  /* bordes redondeados */
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25); /* sombra linda */
+    transition: 0.3s;
+}
+
+.img-huerta:hover {
+    transform: scale(1.03); /* efecto al pasar el mouse */
+}
+
+.huerta-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.img-huerta {
+    width: 45%;          /* ✔ más chica */
+    max-width: 450px;    /* ✔ límite más bajo */
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.20); /* ✔ sombra más suave */
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.img-huerta:hover {
+    transform: scale(1.06);   /* ✔ efecto más visible pero suave */
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+}
