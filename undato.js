@@ -97,3 +97,12 @@ onValue(datosRef, (snapshot) => {
 }, (error) => {
   console.error("Error leyendo Firebase:", error);
 });
+
+// 🔥 Alerta cuando temp > 30
+if (temp > 30) {
+    alerta.style.display = "block";     // mostrar cartel
+    cardTemp.classList.add("alerta-temp");  // poner tarjeta roja
+} else {
+    alerta.style.display = "none";      // ocultar cartel
+    cardTemp.classList.remove("alerta-temp");
+}
