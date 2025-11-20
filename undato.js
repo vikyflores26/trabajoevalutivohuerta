@@ -16,7 +16,7 @@ const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
 // Ruta a tus datos (ajusta si tu estructura es distinta)
-const datosRef = ref(db, "Sensores/nodemcu01");
+const datosRef = ref(db, "sensores/nodemcu01");
 
 // elementos del DOM
 const cardTemp = document.getElementById("cardTemp");
@@ -51,7 +51,7 @@ onValue(datosRef, (snapshot) => {
 
   if (!datos) {
     // No data en la ruta
-    console.warn("Snapshot vacío en Sensores/nodemcu01");
+    console.warn("Snapshot vacío en sensores/nodemcu01");
     valorTemp.textContent = "--°C";
     valorAire.textContent = "--%";
     valorSuelo.textContent = "--%";
